@@ -65,3 +65,4 @@ group :development do
 end
 
 gem 'ridgepole'
+gem 'activerecord-import'
