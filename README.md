@@ -1,24 +1,14 @@
-# README
+# Sandbox Rails Deadlock
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```shell-session
+$ docker compose up
+$ docker compose exec web bash
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```shell-session
+# rails db:create
+# ridgepole -c config/database.yml -f db/Schemafile --apply
+# rails db:seed
+# rails runner "Relationship.bulk_insert(number_of_threads: 2)"
+# rails runner "Relationship.bulk_insert(number_of_threads: 3)"
+```
